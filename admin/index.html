@@ -1,0 +1,116 @@
+<html>
+
+<script src="../../iobroker.mihome/main.js"></script>
+<link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.min.css"/>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.10.3.full.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+<script type="text/javascript" src="words.js"></script>
+
+<style>
+    .value {
+        width: 250px;
+    }
+</style>
+<script type="text/javascript">
+
+    // the function loadSettings has to exist ...
+    function load(settings, onChange) {
+        for (var key in settings) {
+            if (!settings.hasOwnProperty(key)) continue;
+            var $value = $('#' + key + '.value');
+            if ($value.attr('type') === 'checkbox') {
+                $value.prop('checked', settings[key]).change(function () {
+                    onChange();
+                });
+            } else {
+                $value.val(settings[key].toString()).change(function () {
+                    onChange();
+                }).keyup(onChange);
+            }
+        }
+
+        getIsAdapterAlive(function (isAlive) {
+            if (isAlive || common.enabled) {
+                $('#browse').html(_('Browse')).prop('disabled', false).click(function () {
+                    $(this).prop('disabled', true);
+                    $('#found').hide();
+                    sendTo(null, 'browse', $('#bind').val(), function(list) {
+                        $('#browse').prop('disabled', false);
+                        var text = '';
+                        if (!list || !list.length) {
+                            text = '<option value="">' + _('Nothing found') + '</option>';
+                        } else {
+                            text = '<option value="">' + _('Select one') + '</option>';
+                            for (var i = 0; i < list.length; i++) {
+                                text += '<option value="' + list[i] + '">' + list[i] + '</option>';
+                            }
+                        }
+                        $('#found').html(text).show();
+                    });
+                });
+
+                $('#found').change(function () {
+                    var ip = $(this).val();
+                    var $ip = $('#ip');
+                    if (ip && ip !== $ip.val()) {
+                        $ip.val(ip).trigger('change');
+                    }
+                });
+            }
+        });
+
+        fillSelectIPs('#bind', settings.bind, false, true);
+
+        // Signal to admin, that no changes yet
+        onChange(false);
+    }
+
+    function save(callback) {
+        var obj = {};
+        $('.value').each(function () {
+            var $this = $(this);
+            if ($this.attr('type') === 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
+        });
+
+        callback(obj);
+    }
+
+</script>
+
+<div id="adapter-container">
+    <table><tr><td><img src="maxcube.png" width="64" height="64"></td><td><h3 class="translate">MAX! Cube adapter settings</h3></td></tr></table>
+
+    <table>
+        <tr>
+            <td><label  class="translate" for="ip">MAX! Cube IP:</label></td>
+            <td><input id="ip" class="value" style="display: inline-block"/><button id="browse" disabled  style="display: inline-block"></button><select id="found" style="display: none;"></select></td>
+        </tr>
+        <tr>
+            <td><label  class="translate" for="port">MAX! Cube Port:</label></td>
+            <td><input id="port" class="value"/></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label  class="translate" for="bind">Own IP interface:</label></td>
+            <td><select id="bind" class="value"></select></td>
+        </tr>
+        <tr>
+            <td><label  class="translate" for="refreshInterval">Refresh interval (ms):</label></td>
+            <td><input id="refreshInterval" class="value" /></td>
+        </tr>
+        <tr>
+            <td><label  class="translate" for="reconnectInterval">Reconnect interval (ms):</label></td>
+            <td><input id="reconnectInterval" class="value" /></td>
+        </tr>
+    </table>
+</div>
+</html>
