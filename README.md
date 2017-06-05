@@ -1,5 +1,5 @@
 ![Logo](admin/maxcube.png)
-#ioBroker.maxcube
+# ioBroker.maxcube
 ==================================
 [![NPM version](http://img.shields.io/npm/v/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
