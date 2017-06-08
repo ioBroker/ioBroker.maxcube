@@ -18,7 +18,10 @@ ioBroker adapter to control Max! via Cube
 Before using you must first connect all devices to MAX! Cube via MAX! Firmware. 
 
 ## Changelog
-### 0.1.1 (2017-06-05)
+### 0.1.1 (2017-06-07)
+* (bluefox) use local maxcube lib
+
+### 0.1.0 (2017-06-05)
 * (bluefox) intial commit
 
 ## License

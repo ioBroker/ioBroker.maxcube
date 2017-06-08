@@ -1,8 +1,13 @@
 {
     "common": {
         "name":                     "maxcube",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "news": {
+            "0.1.1": {
+                "en": "use local maxcube lib",
+                "de": "Benutze lokale maxcube Bibliothek",
+                "ru": "используется локальная версия библиотеки maxcube"
+            },
             "0.1.0": {
                 "en": "intial commit",
                 "de": "intial commit",
