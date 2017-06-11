@@ -1,8 +1,13 @@
 {
     "common": {
         "name":                     "maxcube",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "news": {
+            "0.1.2": {
+                "en": "Try to read wall thermostat",
+                "de": "Versuche WandThermostat zu lesen",
+                "ru": "Читает настенные термостаты"
+            },
             "0.1.1": {
                 "en": "use local maxcube lib",
                 "de": "Benutze lokale maxcube Bibliothek",

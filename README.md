@@ -18,6 +18,9 @@ ioBroker adapter to control Max! via Cube
 Before using you must first connect all devices to MAX! Cube via MAX! Firmware. 
 
 ## Changelog
+### 0.1.2 (2017-06-11)
+* (paul53) Try to read wall thermostat
+
 ### 0.1.1 (2017-06-07)
 * (bluefox) use local maxcube lib
 
