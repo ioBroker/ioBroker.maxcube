@@ -736,7 +736,7 @@ function connect() {
     }
     adapter.setState('info.connection', false, true);
 
-    max = new MaxCube(adapter.config.ip, adapter.config.port || 62910);
+    max = new MaxCube(adapter.config.ip, adapter.config.port || 62910, adapter.log);
 
     max.on('error', function (error) {
         connected = false;
