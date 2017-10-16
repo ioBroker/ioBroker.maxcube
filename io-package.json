@@ -1,6 +1,6 @@
 {
     "common": {
-        "name":                     "maxcube",
+        "name": "maxcube",
         "version": "0.1.2",
         "news": {
             "0.1.2": {
@@ -24,23 +24,34 @@
             "de": "Max! Cube",
             "ru": "Max! Cube"
         },
-        "title":                    "Max! Cube",
-        "desc":                     {
+        "title": "Max! Cube",
+        "desc": {
             "en": "Control MAX! devices over MAX! Cube",
             "de": "Steuere MAX! Geräte mit dem Max! Cube",
             "ru": "Управляет устройствами MAX! при помощи Max! Cube"
         },
-        "platform":                 "javascript/Node.js",
-        "mode":                     "daemon",
-        "loglevel":                 "info",
-        "license":                  "MIT",
-        "enabled":                  true,
-        "messagebox":               true,
-        "icon":                     "maxcube.png",
-        "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.maxcube/master/admin/maxcube.png",
-        "keywords":                 ["cube", "MAX!", "heating", "heizung"],
-		"readme":                   "https://github.com/ioBroker/ioBroker.maxcube/blob/master/README.md",
-		"type":                     "hardware"
+        "platform": "javascript/Node.js",
+        "mode": "daemon",
+        "loglevel": "info",
+        "license": "MIT",
+        "enabled": true,
+        "messagebox": true,
+        "icon": "maxcube.png",
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.maxcube/master/admin/maxcube.png",
+        "keywords": [
+            "cube",
+            "MAX!",
+            "heating",
+            "heizung"
+        ],
+        "readme": "https://github.com/ioBroker/ioBroker.maxcube/blob/master/README.md",
+        "type": "hardware",
+        "authors": [
+            {
+                "name": "bluefox",
+                "email": "dogafox@gmail.com"
+            }
+        ]
     },
     "native": {
         "bind": "0.0.0.0",
@@ -51,7 +62,7 @@
     },
     "instanceObjects": [
         {
-            "_id":  "info",
+            "_id": "info",
             "type": "channel",
             "common": {
                 "name": "Information"
@@ -59,87 +70,87 @@
             "native": {}
         },
         {
-            "_id":  "info.connection",
+            "_id": "info.connection",
             "type": "state",
             "common": {
-                "role":  "indicator.connected",
-                "name":  "If connected to CUL",
-                "type":  "boolean",
-                "read":  true,
+                "role": "indicator.connected",
+                "name": "If connected to CUL",
+                "type": "boolean",
+                "read": true,
                 "write": false,
-                "def":   false
+                "def": false
             },
             "native": {}
         },
         {
-            "_id":  "info.limitOverflow",
+            "_id": "info.limitOverflow",
             "type": "state",
             "common": {
-                "role":  "indicator",
-                "name":  "Send limit overflow",
-                "type":  "boolean",
-                "read":  true,
+                "role": "indicator",
+                "name": "Send limit overflow",
+                "type": "boolean",
+                "read": true,
                 "write": false,
-                "def":   false
+                "def": false
             },
             "native": {}
         },
         {
-            "_id":  "info.duty_cycle",
+            "_id": "info.duty_cycle",
             "type": "state",
             "common": {
-                "role":  "state",
-                "name":  "Duty cycle",
-                "type":  "number",
-                "read":  true,
+                "role": "state",
+                "name": "Duty cycle",
+                "type": "number",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "info.free_memory_slots",
+            "_id": "info.free_memory_slots",
             "type": "state",
             "common": {
-                "role":  "state",
-                "name":  "Free memory slots",
-                "type":  "number",
-                "read":  true,
+                "role": "state",
+                "name": "Free memory slots",
+                "type": "number",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "info.firmware_version",
+            "_id": "info.firmware_version",
             "type": "state",
             "common": {
-                "role":  "state",
-                "name":  "Frimware version",
-                "type":  "string",
-                "read":  true,
+                "role": "state",
+                "name": "Frimware version",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "info.serial",
+            "_id": "info.serial",
             "type": "state",
             "common": {
-                "role":  "state",
-                "name":  "Serial number",
-                "type":  "string",
-                "read":  true,
+                "role": "state",
+                "name": "Serial number",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "info.rf_address",
+            "_id": "info.rf_address",
             "type": "state",
             "common": {
-                "role":  "state",
-                "name":  "RF address",
-                "type":  "string",
-                "read":  true,
+                "role": "state",
+                "name": "RF address",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
