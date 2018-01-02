@@ -6,7 +6,7 @@
 var utils   = require(__dirname + '/lib/utils'); // Get common adapter utils
 var MaxCube = require(__dirname + '/lib/maxcube/maxcube.js');
 var dgram   = require('dgram');
-var adapter = utils.adapter('maxcube');
+var adapter = utils.Adapter('maxcube');
 
 var max;
 var objects   = {};
