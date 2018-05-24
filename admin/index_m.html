@@ -40,7 +40,7 @@
             if (isAlive || common.enabled) {
                 $('#browse').html(_('Browse')).prop('disabled', false).on('click', function () {
                     $(this).prop('disabled', true);
-                    $('#found').hide();
+                    $('.found').hide();
                     sendTo(null, 'browse', $('#bind').val(), function(list) {
                         $('#browse').prop('disabled', false);
                         var text = '';
@@ -52,7 +52,8 @@
                                 text += '<option value="' + list[i] + '">' + list[i] + '</option>';
                             }
                         }
-                        $('#found').html(text).show().select();
+                        $('#found').html(text).select();
+                        $('.found').show();
                     });
                 });
 
@@ -96,7 +97,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s10 m4">
+            <div class="col s8 m4">
                 <input type="text" id="ip" class="value" />
                 <label  class="translate" for="ip">MAX! Cube IP:</label>
             </div>
@@ -104,7 +105,9 @@
                 <a class="waves-effect waves-light blue btn btn-find" id="browse">
                     <i class="material-icons left">search</i><span class="translate">Find Bridge</span>
                 </a>
-                <select id="found" style="display: none;"></select>
+            </div>
+            <div class="col s2 m2 found"  style="display: none;">
+                <select id="found"></select>
             </div>
         </div>
         <div class="row">
