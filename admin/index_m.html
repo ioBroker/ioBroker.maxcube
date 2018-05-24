@@ -1,0 +1,136 @@
+<html>
+
+<meta charset="UTF-8">
+<!-- Materialze style -->
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../lib/js/materialize.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+<script type="text/javascript" src="words.js"></script>
+
+<style>
+    .value {
+        width: 250px;
+    }
+</style>
+<script type="text/javascript">
+
+    // the function loadSettings has to exist ...
+    function load(settings, onChange) {
+        for (var key in settings) {
+            if (!settings.hasOwnProperty(key)) continue;
+            var $value = $('#' + key + '.value');
+            if ($value.attr('type') === 'checkbox') {
+                $value.prop('checked', settings[key]).on('change', function () {
+                    onChange();
+                });
+            } else {
+                $value.val(settings[key].toString()).on('change', function () {
+                    onChange();
+                }).keyup(onChange);
+            }
+        }
+
+        getIsAdapterAlive(function (isAlive) {
+            if (isAlive || common.enabled) {
+                $('#browse').html(_('Browse')).prop('disabled', false).on('click', function () {
+                    $(this).prop('disabled', true);
+                    $('#found').hide();
+                    sendTo(null, 'browse', $('#bind').val(), function(list) {
+                        $('#browse').prop('disabled', false);
+                        var text = '';
+                        if (!list || !list.length) {
+                            text = '<option value="">' + _('Nothing found') + '</option>';
+                        } else {
+                            text = '<option value="">' + _('Select one') + '</option>';
+                            for (var i = 0; i < list.length; i++) {
+                                text += '<option value="' + list[i] + '">' + list[i] + '</option>';
+                            }
+                        }
+                        $('#found').html(text).show().select();
+                    });
+                });
+
+                $('#found').on('change', function () {
+                    var ip = $(this).val();
+                    var $ip = $('#ip');
+                    if (ip && ip !== $ip.val()) {
+                        $ip.val(ip).trigger('change');
+                    }
+                });
+            }
+        });
+
+        fillSelectIPs('#bind', settings.bind, false, true);
+
+        // Signal to admin, that no changes yet
+        onChange(false);
+    }
+
+    function save(callback) {
+        var obj = {};
+        $('.value').each(function () {
+            var $this = $(this);
+            if ($this.attr('type') === 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
+        });
+
+        callback(obj);
+    }
+
+</script>
+
+<div class="m adapter-container">
+    <div class="row">
+        <div class="row">
+            <div class="col s12 m4 l2">
+                <img src="maxcube.png" class="logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 m4">
+                <input type="text" id="ip" class="value" />
+                <label  class="translate" for="ip">MAX! Cube IP:</label>
+            </div>
+            <div class="col s2 m2">
+                <a class="waves-effect waves-light blue btn btn-find" id="browse">
+                    <i class="material-icons left">search</i><span class="translate">Find Bridge</span>
+                </a>
+                <select id="found" style="display: none;"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 m4">
+                <input id="port" type="number" min="1" max="65565" class="value"/>
+                <label  class="translate" for="port">MAX! Cube Port:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 m4">
+                <select id="bind" class="value"></select>
+                <label  class="translate" for="bind">Own IP interface:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 m4">
+                <input id="refreshInterval" type="number" class="value" />
+                <label  class="translate" for="refreshInterval">Refresh interval (ms):</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 m4">
+                <input id="reconnectInterval" type="number" class="value" />
+                <label  class="translate" for="reconnectInterval">Reconnect interval (ms):</label>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

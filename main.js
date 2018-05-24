@@ -1,29 +1,30 @@
-/* jshint -W097 */// jshint strict:false
+/* jshint -W097 */
+/* jshint strict: false */
 /*jslint node: true */
 
 'use strict';
 // you have to require the utils module and call adapter function
-var utils   = require(__dirname + '/lib/utils'); // Get common adapter utils
-var MaxCube = require(__dirname + '/lib/maxcube/maxcube.js');
-var dgram   = require('dgram');
-var adapter = utils.Adapter('maxcube');
+const utils   = require(__dirname + '/lib/utils'); // Get common adapter utils
+const MaxCube = require(__dirname + '/lib/maxcube/maxcube.js');
+const dgram   = require('dgram');
+const adapter = utils.Adapter('maxcube');
 
-var max;
-var objects   = {};
-var stopping  = false;
-var connectTimer;
-var devices   = {};
-var connected = false;
-var pollTimer = null;
+let max;
+let objects   = {};
+let stopping  = false;
+let connectTimer;
+let devices   = {};
+let connected = false;
+let pollTimer = null;
 
-var num2mode = [
+const num2mode = [
     'AUTO',
     'MANUAL',
     'VACATION',
     'BOOST'
 ];
 
-adapter.on('stateChange', function (id, state) {
+adapter.on('stateChange', (id, state) => {
     if (!id || !state || state.ack) return;
     if (!objects[id] || !objects[id].native) {
         adapter.log.warn('Unknown ID: ' + id);
@@ -34,9 +35,9 @@ adapter.on('stateChange', function (id, state) {
         return;
     }
     if (max && connected) {
-        var parts   = id.split('.');
-        var attr    = parts.pop();
-        var channel = parts.join('.');
+        const parts   = id.split('.');
+        const attr    = parts.pop();
+        const channel = parts.join('.');
 
         if (attr === 'mode') {
             if (typeof state.val === 'string' && num2mode.indexOf(state.val.toUpperCase()) !== -1) {
@@ -48,9 +49,9 @@ adapter.on('stateChange', function (id, state) {
                 adapter.setForeignState(channel + '.working', true, true);
                 objects[channel].setVals = objects[channel].setVals || {};
                 objects[channel].setVals.mode = state.val;
-                max.setTemperature(objects[channel].native.rf_address, objects[channel].vals.setpoint, num2mode[state.val], '2040-12-12T00:00:00').then(function () {
+                max.setTemperature(objects[channel].native.rf_address, objects[channel].vals.setpoint, num2mode[state.val], '2040-12-12T00:00:00').then(() => {
                     adapter.setForeignState(id, objects[channel].vals.mode, true);
-                }).catch(function (err) {
+                }).catch(err => {
                     adapter.setForeignState(channel + '.working', false, true);
                     adapter.log.error('Cannot set mode: ' + err);
                     adapter.setForeignState(id, {val: objects[channel].vals.mode, ack: true, q: 0x84});
@@ -64,9 +65,9 @@ adapter.on('stateChange', function (id, state) {
                 adapter.setForeignState(channel + '.working', true, true);
                 objects[channel].setVals = objects[channel].setVals || {};
                 objects[channel].setVals.setpoint = state.val;
-                max.setTemperature(objects[channel].native.rf_address, objects[channel].vals.setpoint, objects[channel].vals.mode, '2040-12-12T00:00:00').then(function () {
+                max.setTemperature(objects[channel].native.rf_address, objects[channel].vals.setpoint, objects[channel].vals.mode, '2040-12-12T00:00:00').then(() => {
                     adapter.setForeignState(id, objects[channel].vals.setpoint, true);
-                }).catch(function (err) {
+                }).catch(err => {
                     adapter.setForeignState(channel + '.working', false, true);
                     adapter.setForeignState(id, {val: objects[channel].vals.setpoint, ack: true, q: 0x84});
                     adapter.log.error('Cannot set temperature: ' + err);
@@ -80,7 +81,7 @@ adapter.on('stateChange', function (id, state) {
     }
 });
 
-adapter.on('unload', function (callback) {
+adapter.on('unload', callback => {
     stopping = true;
     if (adapter && adapter.setState) {
         adapter.setState('info.connection', false, true);
@@ -94,18 +95,19 @@ adapter.on('unload', function (callback) {
         } catch (e) {
 
         }
+        max = null;
     }
     callback();
 });
 
 adapter.on('ready', main);
 
-adapter.on('message', function (obj) {
+adapter.on('message', obj => {
     if (obj) {
         switch (obj.command) {
             case 'browse':
                 if (obj.callback) {
-                    browse(obj.message || adapter.config.bind, function (list) {
+                    browse(obj.message || adapter.config.bind, list => {
                         adapter.sendTo(obj.from, obj.command, list, obj.callback);
                     });
                 }
@@ -116,23 +118,23 @@ adapter.on('message', function (obj) {
 });
 
 function browse(ownIp, cb) {
-    var timer = null;
-    var socket = dgram.createSocket('udp4');
-    var result = [];
+    let timer = null;
+    const socket = dgram.createSocket('udp4');
+    let result = [];
     if (typeof ownIp === 'function') {
         cb = ownIp;
         ownIp = '0.0.0.0';
     }
 
-    socket.on('message', function (msgBuffer, rinfo) {
-        var msg = msgBuffer.toString();
+    socket.on('message', (msgBuffer, rinfo) => {
+        const msg = msgBuffer.toString();
         // answer is "eQ3MaxApKMD1055338>I"
         if (msg.indexOf('eQ3MaxAp') !== -1) {
             result.push(rinfo.address);
         }
     });
 
-    socket.on('error', function (err) {
+    socket.on('error', err => {
         if (timer) {
             clearTimeout(timer);
             timer = null;
@@ -149,8 +151,8 @@ function browse(ownIp, cb) {
             cb = null;
         }
     });
-    socket.on('listening', function () {
-        var whoIsCommand = 'eQ3Max*\0**********I';
+    socket.on('listening', () => {
+        const whoIsCommand = 'eQ3Max*\0**********I';
         socket.setBroadcast(true);
         socket.setMulticastTTL(128);
         if (ownIp && ownIp !== '0.0.0.0') {
@@ -163,7 +165,7 @@ function browse(ownIp, cb) {
 
     socket.bind(23272);
 
-    timer = setTimeout(function () {
+    timer = setTimeout(() => {
         socket.close();
         timer = null;
         if (cb) {
@@ -173,25 +175,23 @@ function browse(ownIp, cb) {
     }, 2000);
 }
 
-var tasks = [];
+let tasks = [];
 
 function processTasks() {
     if (tasks.length) {
-        var task = tasks.shift();
+        const task = tasks.shift();
         if (task.type === 'state') {
-            adapter.setForeignState(task.id, task.val, true, function () {
-                setTimeout(processTasks, 0);
-            });
+            adapter.setForeignState(task.id, task.val, true, () => setImmediate(processTasks));
         } else if (task.type === 'object') {
-            adapter.getForeignObject(task.id, function (err, obj) {
+            adapter.getForeignObject(task.id, (err, obj) => {
                 if (!obj) {
                     objects[task.id] = task.obj;
-                    adapter.setForeignObject(task.id, task.obj, function (err, res) {
+                    adapter.setForeignObject(task.id, task.obj, (err, res) => {
                         adapter.log.info('object ' + adapter.namespace + '.' + task.id + ' created');
-                        setTimeout(processTasks, 0);
+                        setImmediate(processTasks);
                     });
                 } else {
-                    var changed = false;
+                    let changed = false;
                     if (JSON.stringify(obj.native) !== JSON.stringify(task.obj.native)) {
                         obj.native = task.obj.native;
                         changed = true;
@@ -199,18 +199,18 @@ function processTasks() {
 
                     if (changed) {
                         objects[obj._id] = obj;
-                        adapter.setForeignObject(obj._id, obj, function (err, res) {
+                        adapter.setForeignObject(obj._id, obj, (err, res) => {
                             adapter.log.info('object ' + adapter.namespace + '.' + obj._id + ' created');
-                            setTimeout(processTasks, 0);
+                            setImmediate(processTasks);
                         });
                     } else {
-                        setTimeout(processTasks, 0);
+                        setImmediate(processTasks);
                     }
                 }
             });
         } else {
             adapter.log.error('Unknown task: ' + task.type);
-            setTimeout(processTasks, 0);
+            setImmediate(processTasks);
         }
     }
 }
@@ -232,10 +232,10 @@ function setStates(obj) {
     //    "setpoint": 20,
     //    "temp": 0
     //}
-    var isStart = !tasks.length;
+    const isStart = !tasks.length;
     if (!devices[obj.rf_address]) return;
 
-    var id = devices[obj.rf_address]._id;
+    const id = devices[obj.rf_address]._id;
 
     if (obj.setpoint !== undefined || obj.mode !== undefined) {
         objects[id].vals = objects[id].vals || {};
@@ -249,14 +249,14 @@ function setStates(obj) {
         }
     }
 
-    for (var state in obj) {
+    for (const state in obj) {
         if (!obj.hasOwnProperty(state)) continue;
-        var oid  = id + '.' + state;
+        let oid  = id + '.' + state;
 
         if (!objects[oid] && state !== 'valid') continue;
 
-        var meta = objects[oid];
-        var val  = obj[state];
+        const meta = objects[oid];
+        let val  = obj[state];
 
         if (state === 'valid') {
             oid  = id + '.invalid';
@@ -284,8 +284,8 @@ function setStates(obj) {
 }
 
 function syncObjects(objs) {
-    var isStart = !tasks.length;
-    for (var i = 0; i < objs.length; i++) {
+    const isStart = !tasks.length;
+    for (let i = 0; i < objs.length; i++) {
         if (objs[i].native && objs[i].native.rf_address && !devices[objs[i].native.rf_address]) {
             devices[objs[i].native.rf_address] = objs[i];
         }
@@ -296,10 +296,8 @@ function syncObjects(objs) {
 }
 
 function pollDevices() {
-    max.getDeviceStatus().then(function (devices) {
-        devices.forEach(function (device) {
-            setStates(device);
-        });
+    max.getDeviceStatus().then(devices => {
+        devices.forEach(device => setStates(device));
     });
 }
 
@@ -323,7 +321,7 @@ function getType(value) {
 }
 
 function addDevice(device, deviceInfo) {
-    var type = getType(deviceInfo.device_type);
+    const type = getType(deviceInfo.device_type);
     adapter.log.debug('Found: ' + type + ' ' + device.rf_address);
     //device = {
     //    "rf_address": "06aebc",
@@ -348,8 +346,8 @@ function addDevice(device, deviceInfo) {
     //     "room_name": "Schlafzimmer",
     //     "room_id": 1
     // }
-    var id;
-    var objs = [];
+    let id;
+    let objs = [];
 
     switch (type) {
         case 'HeatingThermostat':
@@ -697,7 +695,7 @@ function addDevice(device, deviceInfo) {
     }
     if (id) {
         if (deviceInfo.room_name) {
-            adapter.getForeignObject('enum.rooms.' + deviceInfo.room_name.replace(/\s|,/g, '_'), function (err, obj) {
+            adapter.getForeignObject('enum.rooms.' + deviceInfo.room_name.replace(/\s|,/g, '_'), (err, obj) => {
                 if (!obj) {
                     obj = {
                         _id: 'enum.rooms.' + deviceInfo.room_name.replace(/\s|,/g, '_'),
@@ -712,7 +710,7 @@ function addDevice(device, deviceInfo) {
                 }
                 if (obj.common.members.indexOf(id) === -1) {
                     obj.common.members.push(id);
-                    adapter.setForeignObject(obj._id, obj, function (err, obj) {
+                    adapter.setForeignObject(obj._id, obj, (err, obj) => {
                         if (err) adapter.log.error(err);
                         syncObjects(objs);
                         setStates(device);
@@ -738,7 +736,7 @@ function connect() {
 
     max = new MaxCube(adapter.config.ip, adapter.config.port || 62910, adapter.log);
 
-    max.on('error', function (error) {
+    max.on('error', error => {
         connected = false;
         adapter.setState('info.connection', false, true);
         adapter.log.error(error);
@@ -754,13 +752,13 @@ function connect() {
         if (!stopping && !connectTimer) connect();
     });
 
-    max.on('hello', function (helloData) {
+    max.on('hello', helloData => {
         adapter.setState('info.firmware_version', helloData.firmware_version, true);
         adapter.setState('info.serial_number', helloData.serial_number, true);
         adapter.setState('info.rf_address', helloData.rf_address, true);
     });
 
-    max.on('connected', function () {
+    max.on('connected', () => {
         connected = true;
         if (connectTimer) {
             clearInterval(connectTimer);
@@ -772,17 +770,15 @@ function connect() {
         adapter.setState('info.free_memory_slots', max.commStatus.free_memory_slots, true);
         adapter.setState('info.duty_cycle', max.commStatus.duty_cycle, true);
 
-        max.getDeviceStatus().then(function (devices) {
-            devices.forEach(function (device) {
-                addDevice(device, max.getDeviceInfo(device.rf_address));
-            });
+        max.getDeviceStatus().then(devices => {
+            devices.forEach(device => addDevice(device, max.getDeviceInfo(device.rf_address)));
         });
         if (!pollTimer) {
             pollTimer = setInterval(pollDevices, adapter.config.refreshInterval || 10000);
         }
     });
 
-    max.on('closed', function () {
+    max.on('closed', () => {
         connected = false;
         adapter.setState('info.connection', false, true);
         adapter.log.info('Connection closed');
@@ -807,12 +803,12 @@ function main() {
     if (adapter.config.scanner === undefined) adapter.config.scanner = 10;
     adapter.config.scanner = parseInt(adapter.config.scanner, 10) || 0;
 
-    adapter.objects.getObjectView('system', 'channel', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
-        for (var i = 0, l = res.rows.length; i < l; i++) {
+    adapter.objects.getObjectView('system', 'channel', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, (err, res) => {
+        for (let i = 0, l = res.rows.length; i < l; i++) {
             objects[res.rows[i].id] = res.rows[i].value;
         }
-        adapter.objects.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
-            for (var i = 0, l = res.rows.length; i < l; i++) {
+        adapter.objects.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, (err, res) => {
+            for (let i = 0, l = res.rows.length; i < l; i++) {
                 objects[res.rows[i].id] = res.rows[i].value;
 
                 if (objects[res.rows[i].id].native && objects[res.rows[i].id].native.rf_address) {

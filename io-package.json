@@ -1,8 +1,13 @@
 {
     "common": {
         "name": "maxcube",
-        "version": "0.1.2",
+        "version": "1.0.0",
         "news": {
+            "1.0.0": {
+                "en": "Added admin3 config",
+                "de": "Admin3 Konfiguration wurde hinzugefügt",
+                "ru": "Добавлен admin3 диалог"
+            },
             "0.1.2": {
                 "en": "Try to read wall thermostat",
                 "de": "Versuche WandThermostat zu lesen",
@@ -19,11 +24,6 @@
                 "ru": "intial commit"
             }
         },
-        "titleLang": {
-            "en": "Max! Cube",
-            "de": "Max! Cube",
-            "ru": "Max! Cube"
-        },
         "title": "Max! Cube",
         "desc": {
             "en": "Control MAX! devices over MAX! Cube",
@@ -35,6 +35,7 @@
         "loglevel": "info",
         "license": "MIT",
         "enabled": true,
+        "materialize": true,
         "messagebox": true,
         "icon": "maxcube.png",
         "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.maxcube/master/admin/maxcube.png",
