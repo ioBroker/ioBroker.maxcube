@@ -3,7 +3,7 @@
         "name": "maxcube",
         "version": "1.0.1",
         "news": {
-		    "1.0.1": {
+            "1.0.1": {
                 "en": "Working-state initialization, setpoint rounding to 0.5, upstream only changed states, stabilizes state display for setpoint and mode values",
                 "de": "Initialisierung des Working-States, Setpoint-Rundung auf 0.5, nur veränderte States werden geschrieben, Stabilisierung der Anzeigewerte bei Mode- und Setpoint-Veränderungen",
                 "ru": "Инициализация рабочего состояния, округление до 0,5, восходящее только измененное состояние, стабилизация отображения состояния для заданных значений и значений режима"
