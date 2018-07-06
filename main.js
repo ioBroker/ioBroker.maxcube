@@ -50,7 +50,7 @@ adapter.on('stateChange', (id, state) => {
                 objects[channel].setVals = objects[channel].setVals || {};
                 objects[channel].setVals.mode = state.val;
                 max.setTemperature(objects[channel].native.rf_address, objects[channel].vals.setpoint, num2mode[state.val], '2040-12-12T00:00:00').then(() => {
-                    adapter.setForeignState(id, objects[channel].vals.mode, true);
+                    adapter.setForeignState(id, num2mode[state.val], true);
                 }).catch(err => {
                     adapter.setForeignState(channel + '.working', false, true);
                     adapter.log.error('Cannot set mode: ' + err);
@@ -61,11 +61,11 @@ adapter.on('stateChange', (id, state) => {
             }
         } else if (attr === 'setpoint') {
             if (objects[channel].vals.setpoint !== parseFloat(state.val, 10)) {
-                objects[channel].vals.setpoint = parseFloat(state.val, 10);
+                objects[channel].vals.setpoint = Math.round(parseFloat(state.val, 10)*2)/2;
                 adapter.setForeignState(channel + '.working', true, true);
                 objects[channel].setVals = objects[channel].setVals || {};
-                objects[channel].setVals.setpoint = state.val;
-                max.setTemperature(objects[channel].native.rf_address, objects[channel].vals.setpoint, objects[channel].vals.mode, '2040-12-12T00:00:00').then(() => {
+                objects[channel].setVals.setpoint = Math.round(parseFloat(state.val, 10)*2)/2;
+                max.setTemperature(objects[channel].native.rf_address, objects[channel].vals.setpoint, num2mode[1], '2040-12-12T00:00:00').then(() => {
                     adapter.setForeignState(id, objects[channel].vals.setpoint, true);
                 }).catch(err => {
                     adapter.setForeignState(channel + '.working', false, true);
@@ -181,7 +181,7 @@ function processTasks() {
     if (tasks.length) {
         const task = tasks.shift();
         if (task.type === 'state') {
-            adapter.setForeignState(task.id, task.val, true, () => setImmediate(processTasks));
+            adapter.setForeignStateChanged(task.id, task.val, true, () => setImmediate(processTasks));
         } else if (task.type === 'object') {
             adapter.getForeignObject(task.id, (err, obj) => {
                 if (!obj) {
@@ -246,7 +246,7 @@ function setStates(obj) {
                 (objects[id].setVals.mode     !== undefined && objects[id].setVals.mode     === obj.mode)) {
                 tasks.push({type: 'state', id: id + '.working', val: false});
             }
-        }
+        }  else tasks.push({type: 'state', id: id + '.working', val: false});
     }
 
     for (const state in obj) {

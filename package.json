@@ -5,7 +5,7 @@
     "email": "dogafox@gmail.com"
   },
   "description": "MAX! Cube adapter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.maxcube/issues"
   },
@@ -27,7 +27,8 @@
   "homepage": "https://github.com/ioBroker/ioBroker.maxcube",
   "keywords": [
     "ioBroker",
-    "cul stick",
+    "Max! Cube",
+    "eQ-3",
     "home automation"
   ],
   "license": "MIT",
