@@ -18,6 +18,12 @@ ioBroker adapter to control Max! via Cube
 Before using you must first connect all devices to MAX! Cube via MAX! Firmware. 
 
 ## Changelog
+### 1.0.1 (2018-07-06)
+* (stabilostick) initialization of working state
+* (stabilostick) setpoint rounding to 0.5
+* (stabilostick) upstream only changed states
+* (stabilostick) stabilize state display for setpoint and mode values
+
 ### 1.0.0 (2018-05-24)
 * (bluefox) refactoring
 * (bluefox) added admin3
