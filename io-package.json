@@ -52,7 +52,7 @@
 			"eQ-3"
         ],
         "readme": "https://github.com/ioBroker/ioBroker.maxcube/blob/master/README.md",
-        "type": "hardware",
+        "type": "climate-control",
         "authors": [
             {
                 "name": "bluefox",
