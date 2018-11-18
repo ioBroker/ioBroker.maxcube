@@ -131,7 +131,7 @@
             "type": "state",
             "common": {
                 "role":  "info.version",
-                "name": "Frimware version",
+                "name": "Firmware version",
                 "type": "string",
                 "read": true,
                 "write": false
