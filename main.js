@@ -4,7 +4,7 @@
 
 'use strict';
 // you have to require the utils module and call adapter function
-const utils   = require(__dirname + '/lib/utils'); // Get common adapter utils
+const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const MaxCube = require(__dirname + '/lib/maxcube/maxcube.js');
 const dgram   = require('dgram');
 const adapter = utils.Adapter('maxcube');
