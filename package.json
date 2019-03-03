@@ -21,7 +21,8 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "gulp": "^3.9.1",
-    "mocha": "^4.1.0"
+    "mocha": "^4.1.0",
+    "@iobroker/adapter-core": "^1.0.3"
   },
   "directories": {},
   "homepage": "https://github.com/ioBroker/ioBroker.maxcube",
