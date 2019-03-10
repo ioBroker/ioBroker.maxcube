@@ -1,7 +1,7 @@
 ![Logo](admin/maxcube.png)
 # ioBroker.maxcube
 ==================================
-[![NPM version](http://img.shields.io/npm/v/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
+![Number of Installations](http://iobroker.live/badges/maxcube-installed.svg) ![Number of Installations](http://iobroker.live/badges/maxcube-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
 [![Tests](https://travis-ci.org/ioBroker/ioBroker.maxcube.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.maxcube)
 
