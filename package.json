@@ -33,12 +33,6 @@
     "home automation"
   ],
   "license": "MIT",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://raw.githubusercontent.com/ioBroker/ioBroker.maxcube/master/LICENSE"
-    }
-  ],
   "main": "main.js",
   "maintainers": [
     {
