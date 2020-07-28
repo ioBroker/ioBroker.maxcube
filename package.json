@@ -5,7 +5,7 @@
     "email": "dogafox@gmail.com"
   },
   "description": "MAX! Cube adapter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.maxcube/issues"
   },
@@ -16,13 +16,13 @@
     }
   ],
   "dependencies": {
-    "moment": "^2.22.1",
-    "@iobroker/adapter-core": "^1.0.3"
+    "moment": "^2.27.0",
+    "@iobroker/adapter-core": "^2.3.1"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "gulp": "^3.9.1",
-    "mocha": "^4.1.0"
+    "chai": "^4.2.0",
+    "gulp": "^4.0.2",
+    "mocha": "^8.0.1"
   },
   "directories": {},
   "homepage": "https://github.com/ioBroker/ioBroker.maxcube",

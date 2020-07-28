@@ -18,6 +18,11 @@ ioBroker adapter to control Max! via Cube
 Before using you must first connect all devices to MAX! Cube via MAX! Firmware. 
 
 ## Changelog
+
+### 1.0.2 (2020-07-28)
+* (Apollon77) Update dependencies
+* (Apollon77) make compatible with js-controller 3
+
 ### 1.0.1 (2018-07-06)
 * (stabilostick) initialization of working state
 * (stabilostick) setpoint rounding to 0.5

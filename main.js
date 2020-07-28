@@ -803,11 +803,11 @@ function main() {
     if (adapter.config.scanner === undefined) adapter.config.scanner = 10;
     adapter.config.scanner = parseInt(adapter.config.scanner, 10) || 0;
 
-    adapter.objects.getObjectView('system', 'channel', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, (err, res) => {
+    adapter.getObjectView('system', 'channel', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, (err, res) => {
         for (let i = 0, l = res.rows.length; i < l; i++) {
             objects[res.rows[i].id] = res.rows[i].value;
         }
-        adapter.objects.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, (err, res) => {
+        adapter.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, (err, res) => {
             for (let i = 0, l = res.rows.length; i < l; i++) {
                 objects[res.rows[i].id] = res.rows[i].value;
 
