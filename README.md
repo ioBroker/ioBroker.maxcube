@@ -20,7 +20,7 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 ## Changelog
 
 ### 1.0.3 (2021-04-10)
-* (Apollon77) fixed state has no existing object for info.serial_number
+* (thost96) fixed state has no existing object for info.serial_number
 
 ### 1.0.2 (2020-07-28)
 * (Apollon77) Update dependencies
