@@ -22,7 +22,7 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 ### 1.0.3 (2021-04-10)
 * (thost96) fixed state has no existing object for info.serial_number
 
-### __WORK IN PROGRESS__
+### 1.0.3 (2021-04-11)
 * (thost96) Prevent js-controller 3.2 warnings
 
 ### 1.0.2 (2020-07-28)

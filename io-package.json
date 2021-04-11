@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "maxcube",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "news": {
+            "1.0.3": {
+                "en": "Prevent js-controller 3.2 warnings",
+                "de": "Verhindern Sie Warnungen von js-controller 3.2",
+                "ru": "Предотвращение предупреждений js-controller 3.2",
+                "pt": "Impedir avisos do js-controller 3.2",
+                "nl": "Voorkom js-controller 3.2-waarschuwingen",
+                "fr": "Empêcher les avertissements de js-controller 3.2",
+                "it": "Prevenire gli avvisi di js-controller 3.2",
+                "es": "Evitar advertencias de js-controller 3.2",
+                "pl": "Zapobiegaj ostrzeżeniom js-controller 3.2",
+                "zh-cn": "防止js-controller 3.2警告"
+            },
             "1.0.2": {
                 "en": "update and prevent warnings in js-controller 3",
                 "de": "Aktualisieren und Verhindern von Warnungen in js-controller 3",
@@ -61,7 +73,7 @@
             "MAX!",
             "heating",
             "heizung",
-			"eQ-3"
+            "eQ-3"
         ],
         "readme": "https://github.com/ioBroker/ioBroker.maxcube/blob/master/README.md",
         "type": "climate-control",
@@ -147,7 +159,7 @@
             "_id": "info.firmware_version",
             "type": "state",
             "common": {
-                "role":  "info.version",
+                "role": "info.version",
                 "name": "Firmware version",
                 "type": "string",
                 "read": true,
@@ -159,7 +171,7 @@
             "_id": "info.serial_number",
             "type": "state",
             "common": {
-                "role":  "info.serial_number",
+                "role": "info.serial_number",
                 "name": "Serial number",
                 "type": "string",
                 "read": true,
@@ -171,7 +183,7 @@
             "_id": "info.rf_address",
             "type": "state",
             "common": {
-                "role":  "info.address",
+                "role": "info.address",
                 "name": "RF address",
                 "type": "string",
                 "read": true,
