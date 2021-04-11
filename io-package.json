@@ -156,10 +156,10 @@
             "native": {}
         },
         {
-            "_id": "info.serial",
+            "_id": "info.serial_number",
             "type": "state",
             "common": {
-                "role":  "info.serial",
+                "role":  "info.serial_number",
                 "name": "Serial number",
                 "type": "string",
                 "read": true,
