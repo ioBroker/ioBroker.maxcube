@@ -57,7 +57,14 @@
         "desc": {
             "en": "Control MAX! devices over MAX! Cube",
             "de": "Steuere MAX! Geräte mit dem Max! Cube",
-            "ru": "Управляет устройствами MAX! при помощи Max! Cube"
+            "ru": "Управляет устройствами MAX! при помощи Max! Cube",
+            "pt": "Control MAX! ",
+            "nl": "Controle MAX! ",
+            "fr": "Contrôlez MAX! ",
+            "it": "Controllo MAX! ",
+            "es": "Control MAX! ",
+            "pl": "Control MAX! ",
+            "zh-cn": "控制MAX！"
         },
         "platform": "javascript/Node.js",
         "mode": "daemon",
