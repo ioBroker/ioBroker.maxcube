@@ -81,7 +81,14 @@
         "desc": {
             "en": "Control MAX! devices over MAX! Cube",
             "de": "Steuere MAX! Geräte mit dem Max! Cube",
-            "ru": "Управляет устройствами MAX! при помощи Max! Cube"
+            "ru": "Управляет устройствами MAX! при помощи Max! Cube",
+            "pt": "Control MAX! ",
+            "nl": "Controle MAX! ",
+            "fr": "Contrôlez MAX! ",
+            "it": "Controllo MAX! ",
+            "es": "Control MAX! ",
+            "pl": "Control MAX! ",
+            "zh-cn": "控制MAX！"
         },
         "platform": "javascript/Node.js",
         "mode": "daemon",
@@ -97,7 +104,7 @@
             "MAX!",
             "heating",
             "heizung",
-			"eQ-3"
+            "eQ-3"
         ],
         "readme": "https://github.com/ioBroker/ioBroker.maxcube/blob/master/README.md",
         "type": "climate-control",
@@ -111,7 +118,7 @@
         ],
         "dependencies": [
             {
-                "js-controller": ">=1.4.2"
+                "js-controller": ">=2.0.0"
             }
         ]
     },
@@ -185,7 +192,7 @@
             "_id": "info.firmware_version",
             "type": "state",
             "common": {
-                "role":  "info.version",
+                "role": "info.version",
                 "name": "Firmware version",
                 "type": "string",
                 "read": true,
@@ -197,7 +204,7 @@
             "_id": "info.serial_number",
             "type": "state",
             "common": {
-                "role":  "info.serial_number",
+                "role": "info.serial_number",
                 "name": "Serial number",
                 "type": "string",
                 "read": true,
@@ -209,7 +216,7 @@
             "_id": "info.rf_address",
             "type": "state",
             "common": {
-                "role":  "info.address",
+                "role": "info.address",
                 "name": "RF address",
                 "type": "string",
                 "read": true,
