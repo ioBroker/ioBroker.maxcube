@@ -1,8 +1,44 @@
 {
     "common": {
         "name": "maxcube",
-        "version": "1.0.2",
+        "version": "1.0.5",
         "news": {
+            "1.0.5": {
+                "en": " added test for node 16 and updated documentation",
+                "de": " Test für Knoten 16 hinzugefügt und Dokumentation aktualisiert",
+                "ru": " добавлен тест для узла 16 и обновлена документация",
+                "pt": " teste adicionado para o nó 16 e documentação atualizada",
+                "nl": " test toegevoegd voor knooppunt 16 en bijgewerkte documentatie",
+                "fr": " test ajouté pour le nœud 16 et documentation mise à jour",
+                "it": " aggiunto test per il nodo 16 e documentazione aggiornata",
+                "es": " prueba agregada para el nodo 16 y documentación actualizada",
+                "pl": " dodany test dla węzła 16 i zaktualizowana dokumentacja",
+                "zh-cn": " 添加了对节点16的测试并更新了文档"
+            },
+            "1.0.4": {
+                "en": "fixes for issues found by adapter checker (issue #31)",
+                "de": "Korrekturen für Probleme, die vom Adapterprüfer gefunden wurden (Problem Nr. 31)",
+                "ru": "исправления проблем, обнаруженных средством проверки адаптеров (проблема № 31)",
+                "pt": "correções para problemas encontrados pelo verificador de adaptador (problema nº 31)",
+                "nl": "oplossingen voor problemen gevonden door adapterchecker (probleem # 31)",
+                "fr": "correctifs pour les problèmes détectés par le vérificateur d'adaptateur (problème n ° 31)",
+                "it": "correzioni per problemi rilevati dal controllo adattatore (problema # 31)",
+                "es": "arreglos para problemas encontrados por el verificador de adaptadores (problema # 31)",
+                "pl": "poprawki problemów znalezionych przez narzędzie do sprawdzania adapterów (problem nr 31)",
+                "zh-cn": "修复了适配器检查器发现的问题（问题＃31）"
+            },
+            "1.0.3": {
+                "en": "fixed state has no existing object for info.serial_number",
+                "de": "Der feste Status hat kein vorhandenes Objekt für info.serial_number",
+                "ru": "фиксированное состояние не имеет существующего объекта для info.serial_number",
+                "pt": "estado fixo não tem objeto existente para info.serial_number",
+                "nl": "fixed state heeft geen bestaand object voor info.serial_number",
+                "fr": "l'état fixe n'a pas d'objet existant pour info.serial_number",
+                "it": "lo stato fisso non ha alcun oggetto esistente per info.serial_number",
+                "es": "el estado fijo no tiene ningún objeto existente para info.serial_number",
+                "pl": "ustalony stan nie ma istniejącego obiektu dla info.serial_number",
+                "zh-cn": "固定状态没有info.serial_number的现有对象"
+            },
             "1.0.2": {
                 "en": "update and prevent warnings in js-controller 3",
                 "de": "Aktualisieren und Verhindern von Warnungen in js-controller 3",
