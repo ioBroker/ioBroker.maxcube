@@ -28,16 +28,16 @@
                 "zh-cn": "修复了适配器检查器发现的问题（问题＃31）"
             },
             "1.0.3": {
-                "en": "fixed state has no existing object for info.serial_number",
-                "de": "Der feste Status hat kein vorhandenes Objekt für info.serial_number",
-                "ru": "фиксированное состояние не имеет существующего объекта для info.serial_number",
-                "pt": "estado fixo não tem objeto existente para info.serial_number",
-                "nl": "fixed state heeft geen bestaand object voor info.serial_number",
-                "fr": "l'état fixe n'a pas d'objet existant pour info.serial_number",
-                "it": "lo stato fisso non ha alcun oggetto esistente per info.serial_number",
-                "es": "el estado fijo no tiene ningún objeto existente para info.serial_number",
-                "pl": "ustalony stan nie ma istniejącego obiektu dla info.serial_number",
-                "zh-cn": "固定状态没有info.serial_number的现有对象"
+                "en": "Prevent js-controller 3.2 warnings",
+                "de": "Verhindern Sie Warnungen von js-controller 3.2",
+                "ru": "Предотвращение предупреждений js-controller 3.2",
+                "pt": "Impedir avisos do js-controller 3.2",
+                "nl": "Voorkom js-controller 3.2-waarschuwingen",
+                "fr": "Empêcher les avertissements de js-controller 3.2",
+                "it": "Prevenire gli avvisi di js-controller 3.2",
+                "es": "Evitar advertencias de js-controller 3.2",
+                "pl": "Zapobiegaj ostrzeżeniom js-controller 3.2",
+                "zh-cn": "防止js-controller 3.2警告"
             },
             "1.0.2": {
                 "en": "update and prevent warnings in js-controller 3",
