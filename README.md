@@ -21,7 +21,7 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 1.0.4 (2021-07-15)
 * (thost96/Apollon77) optimize for js-controller 3.3
 
 ### 1.0.3 (2021-04-10)

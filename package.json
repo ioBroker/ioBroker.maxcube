@@ -5,7 +5,7 @@
     "email": "dogafox@gmail.com"
   },
   "description": "MAX! Cube adapter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.maxcube/issues"
   },
