@@ -6,6 +6,6 @@
     "Own IP interface:": "Eigene IP Schnittstelle",
     "Refresh interval (ms):": "Auffrischungsintervall (ms)",
     "Reconnect interval (ms):": "Neuverbindungsintervall (ms)",
-    "Listen on all IPs": "Lauschen auf allen IP Adressen",
+    "Listen on all IPs": "Anfragen für alle IPs beantworten",
     "Find Bridge": "Suche Bridge"
 }
