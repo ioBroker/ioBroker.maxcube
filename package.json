@@ -24,7 +24,7 @@
     "axios": "^0.26.0",
     "chai": "^4.3.6",
     "gulp": "^4.0.2",
-    "mocha": "^9.2.0"
+    "mocha": "^9.2.1"
   },
   "directories": {},
   "homepage": "https://github.com/ioBroker/ioBroker.maxcube",
