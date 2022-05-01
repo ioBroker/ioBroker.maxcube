@@ -16,7 +16,7 @@
     }
   ],
   "dependencies": {
-    "moment": "^2.29.1",
+    "moment": "^2.29.3",
     "@iobroker/adapter-core": "^2.6.0"
   },
   "devDependencies": {
