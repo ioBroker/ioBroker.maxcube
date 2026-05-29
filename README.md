@@ -21,6 +21,10 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.0.4 (2021-07-15)
 * (thost96/Apollon77) optimize for js-controller 3.3
 
