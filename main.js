@@ -6,7 +6,7 @@
 // you have to require the utils module and call adapter function
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const MaxCube = require(__dirname + '/lib/maxcube/maxcube.js');
-const dgram   = require('dgram');
+const dgram   = require('node:dgram');
 const adapter = utils.Adapter('maxcube');
 
 let max;
