@@ -53,6 +53,8 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 ### 0.1.0 (2017-06-05)
 * (bluefox) intial commit
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT Copyright (c) 2017-2026 bluefox
