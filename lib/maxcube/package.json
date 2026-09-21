@@ -4,7 +4,7 @@
   "description": "eQ-3 Max! Cube interface",
   "main": "maxcube.js",
   "dependencies": {
-    "bluebird": "^3.3.4",
+    "bluebird": "^3.7.2",
     "moment": "^2.17.1"
   },
   "repository": {
