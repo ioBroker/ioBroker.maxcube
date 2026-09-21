@@ -81,7 +81,10 @@
         "platform": "javascript/Node.js",
         "mode": "daemon",
         "loglevel": "info",
-        "license": "MIT",
+        "licenseInformation": {
+            "type": "free",
+            "license": "MIT"
+        },
         "enabled": true,
         "materialize": true,
         "messagebox": true,
