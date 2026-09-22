@@ -86,7 +86,9 @@
             "license": "MIT"
         },
         "enabled": true,
-        "materialize": true,
+        "adminUI": {
+            "config": "materialize"
+        },
         "messagebox": true,
         "icon": "maxcube.png",
         "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.maxcube/master/admin/maxcube.png",
