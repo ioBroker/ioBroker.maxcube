@@ -1,0 +1,74 @@
+{
+    "i18n": true,
+    "type": "panel",
+    "items": {
+        "_logo": {
+            "type": "staticImage",
+            "src": "maxcube.png",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "ip": {
+            "type": "autocompleteSendTo",
+            "command": "browse",
+            "jsonData": "{\"bind\": \"${data.bind}\"}",
+            "freeSolo": true,
+            "label": "MAX! Cube IP",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "port": {
+            "type": "number",
+            "min": 1,
+            "max": 65535,
+            "label": "MAX! Cube Port",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "bind": {
+            "type": "ip",
+            "listenOnAllPorts": true,
+            "label": "Own IP interface",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "refreshInterval": {
+            "type": "number",
+            "min": 1000,
+            "label": "Refresh interval (ms)",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "reconnectInterval": {
+            "type": "number",
+            "min": 1000,
+            "label": "Reconnect interval (ms)",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        }
+    }
+}

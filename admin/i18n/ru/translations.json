@@ -3,9 +3,14 @@
     "Find Bridge": "Find Bridge",
     "Listen on all IPs": "Ожидать соединения на всех IP адресах",
     "MAX! CUL adapter settings": "Настройки MAX! CUL Драйвера",
+    "MAX! Cube IP": "MAX! Cube IP",
     "MAX! Cube IP:": "MAX! Cube IP",
+    "MAX! Cube Port": "MAX! Cube Port",
     "MAX! Cube Port:": "MAX! Cube Port",
+    "Own IP interface": "Собственный IP-интерфейс",
     "Own IP interface:": "Собственный IP-интерфейс",
+    "Reconnect interval (ms)": "Интервал повторного подключения (мс)",
     "Reconnect interval (ms):": "Интервал повторного подключения (мс)",
+    "Refresh interval (ms)": "Интервал обновления (мс)",
     "Refresh interval (ms):": "Интервал обновления (мс)"
 }

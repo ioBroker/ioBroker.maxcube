@@ -107,8 +107,9 @@ adapter.on('message', obj => {
         switch (obj.command) {
             case 'browse':
                 if (obj.callback) {
-                    browse(obj.message || adapter.config.bind, list => {
-                        adapter.sendTo(obj.from, obj.command, list, obj.callback);
+                    const bind = (obj.message && typeof obj.message === 'object') ? obj.message.bind : obj.message;
+                    browse(bind || adapter.config.bind, list => {
+                        adapter.sendTo(obj.from, obj.command, list.map(ip => ({label: ip, value: ip})), obj.callback);
                     });
                 }
 

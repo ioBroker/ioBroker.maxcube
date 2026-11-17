@@ -20,6 +20,12 @@ ioBroker adapter to control Max! via Cube
 Before using you must first connect all devices to MAX! Cube via MAX! Firmware. 
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (GermanBluefox) Migrated admin settings to jsonConfig (responsive design) (#141)
 
 ### 1.0.4 (2021-07-15)
 * (thost96/Apollon77) optimize for js-controller 3.3

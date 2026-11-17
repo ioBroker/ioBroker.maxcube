@@ -87,7 +87,7 @@
         },
         "enabled": true,
         "adminUI": {
-            "config": "materialize"
+            "config": "json"
         },
         "messagebox": true,
         "icon": "maxcube.png",
@@ -113,6 +113,11 @@
         "dependencies": [
             {
                 "js-controller": ">=2.0.0"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=6.0.0"
             }
         ]
     },
