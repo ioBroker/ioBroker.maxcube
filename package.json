@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "moment": "^2.29.4",
-    "@iobroker/adapter-core": "^2.6.7"
+    "@iobroker/adapter-core": "^3.2.3"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^2.2.1",
@@ -25,6 +25,9 @@
     "chai": "^4.3.7",
     "gulp": "^4.0.2",
     "mocha": "^10.2.0"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "directories": {},
   "homepage": "https://github.com/ioBroker/ioBroker.maxcube",
