@@ -7,7 +7,7 @@
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const MaxCube = require(__dirname + '/lib/maxcube/maxcube.js');
 const dgram   = require('node:dgram');
-const adapter = utils.Adapter('maxcube');
+const adapter = new utils.Adapter('maxcube');
 
 let max;
 let objects   = {};
