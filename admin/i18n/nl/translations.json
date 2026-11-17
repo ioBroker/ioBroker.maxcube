@@ -3,9 +3,14 @@
     "Find Bridge": "Find Bridge",
     "Listen on all IPs": "Luister op alle IP's",
     "MAX! CUL adapter settings": "MAX! CUL adapter settings",
+    "MAX! Cube IP": "MAX! Cube IP",
     "MAX! Cube IP:": "MAX! Cube IP",
+    "MAX! Cube Port": "MAX! Cube Port",
     "MAX! Cube Port:": "MAX! Cube Port",
+    "Own IP interface": "Eigen IP-interface",
     "Own IP interface:": "Eigen IP-interface",
+    "Reconnect interval (ms)": "Reconnect interval (ms)",
     "Reconnect interval (ms):": "Reconnect interval (ms)",
+    "Refresh interval (ms)": "Interval vernieuwen (ms)",
     "Refresh interval (ms):": "Interval vernieuwen (ms)"
 }
